@@ -2,7 +2,14 @@
 
 **Build Palantir-inspired, ontology-driven AI decision systems on your own machine.**
 
-[English](README.md) | [日本語](README.ja.md) | [中文](README.zh-CN.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0f172a.svg)](LICENSE)
+![Local First](https://img.shields.io/badge/Local-First-0ea5e9.svg)
+![Ontology Driven](https://img.shields.io/badge/Ontology-Driven-22c55e.svg)
+![Decision Systems](https://img.shields.io/badge/AI-Decision%20Systems-f59e0b.svg)
+
+Language: [English](README.md) | [Japanese](README.ja.md) | [Chinese](README.zh-CN.md)
+
+![Palantir Ontology Hero](docs/assets/palantir-ontology-hero.svg)
 
 ## What this is
 
@@ -260,8 +267,11 @@ Use it as an open design system for ontology-driven local AI workflows.
 ## Read more
 
 - [Framework in English](docs/FRAMEWORK.en.md)
-- [フレームワーク日本語版](docs/FRAMEWORK.ja.md)
-- [框架中文版本](docs/FRAMEWORK.zh-CN.md)
+- [Framework in Japanese](docs/FRAMEWORK.ja.md)
+- [Framework in Chinese](docs/FRAMEWORK.zh-CN.md)
+- [Example use cases in English](docs/USE_CASES.en.md)
+- [Example use cases in Japanese](docs/USE_CASES.ja.md)
+- [Example use cases in Chinese](docs/USE_CASES.zh-CN.md)
 
 ## If this resonates
 

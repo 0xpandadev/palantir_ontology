@@ -2,7 +2,14 @@
 
 **Palantir風の ontology-driven AI 意思決定システムを、自分のローカル環境で構築するためのスキルです。**
 
-[English](README.md) | [日本語](README.ja.md) | [中文](README.zh-CN.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0f172a.svg)](LICENSE)
+![Local First](https://img.shields.io/badge/Local-First-0ea5e9.svg)
+![Ontology Driven](https://img.shields.io/badge/Ontology-Driven-22c55e.svg)
+![Decision Systems](https://img.shields.io/badge/AI-Decision%20Systems-f59e0b.svg)
+
+Language: [English](README.md) | [Japanese](README.ja.md) | [Chinese](README.zh-CN.md)
+
+![Palantir Ontology Hero](docs/assets/palantir-ontology-hero.svg)
 
 ## これは何か
 
@@ -262,6 +269,9 @@ ontology-driven なローカル AI workflow を設計するための、オープ
 - [Framework in English](docs/FRAMEWORK.en.md)
 - [フレームワーク日本語版](docs/FRAMEWORK.ja.md)
 - [框架中文版本](docs/FRAMEWORK.zh-CN.md)
+- [ユースケース集 English](docs/USE_CASES.en.md)
+- [ユースケース集 日本語](docs/USE_CASES.ja.md)
+- [ユースケース集 中文](docs/USE_CASES.zh-CN.md)
 
 ## 共感したら
 

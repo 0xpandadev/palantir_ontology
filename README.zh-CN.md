@@ -2,7 +2,14 @@
 
 **把受 Palantir 启发的 ontology-driven AI 决策系统，带到你自己的本地环境里。**
 
-[English](README.md) | [日本語](README.ja.md) | [中文](README.zh-CN.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0f172a.svg)](LICENSE)
+![Local First](https://img.shields.io/badge/Local-First-0ea5e9.svg)
+![Ontology Driven](https://img.shields.io/badge/Ontology-Driven-22c55e.svg)
+![Decision Systems](https://img.shields.io/badge/AI-Decision%20Systems-f59e0b.svg)
+
+Language: [English](README.md) | [Japanese](README.ja.md) | [Chinese](README.zh-CN.md)
+
+![Palantir Ontology Hero](docs/assets/palantir-ontology-hero.svg)
 
 ## 这是什么
 
@@ -258,6 +265,9 @@ Use $palantir-ontology to inspect this codebase and PRD, then define the ontolog
 - [Framework in English](docs/FRAMEWORK.en.md)
 - [フレームワーク日本語版](docs/FRAMEWORK.ja.md)
 - [框架中文版本](docs/FRAMEWORK.zh-CN.md)
+- [Use cases in English](docs/USE_CASES.en.md)
+- [使用案例日文版](docs/USE_CASES.ja.md)
+- [使用案例中文版](docs/USE_CASES.zh-CN.md)
 
 ## 如果你也认同这个方向
 
