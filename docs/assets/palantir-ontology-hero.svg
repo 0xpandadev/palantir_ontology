@@ -1,0 +1,74 @@
+<svg width="1400" height="840" viewBox="0 0 1400 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111F"/>
+      <stop offset="1" stop-color="#0F2742"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#13253E"/>
+      <stop offset="1" stop-color="#0B1728"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="840" rx="32" fill="url(#bg)"/>
+  <circle cx="1140" cy="130" r="180" fill="#0EA5E9" fill-opacity="0.10"/>
+  <circle cx="240" cy="700" r="220" fill="#22C55E" fill-opacity="0.08"/>
+
+  <text x="96" y="128" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700">Palantir Ontology</text>
+  <text x="96" y="178" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="28">Build ontology-driven AI decision systems locally.</text>
+  <text x="96" y="222" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="22">Decision-first. Object-aware. Governed. Actionable.</text>
+
+  <rect x="88" y="290" width="280" height="180" rx="24" fill="url(#card)" stroke="#1E3A5F"/>
+  <text x="118" y="340" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600">Messy Workflow</text>
+  <text x="118" y="382" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="20">tickets</text>
+  <text x="118" y="412" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="20">runbooks</text>
+  <text x="118" y="442" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="20">CSV / schemas / code</text>
+
+  <rect x="432" y="250" width="280" height="260" rx="24" fill="url(#card)" stroke="#14532D"/>
+  <text x="462" y="300" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600">Decision Surface</text>
+  <text x="462" y="344" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="20">objects</text>
+  <text x="462" y="376" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="20">signals</text>
+  <text x="462" y="408" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="20">states</text>
+  <text x="462" y="440" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="20">actions</text>
+  <text x="462" y="472" fill="#86EFAC" font-family="Segoe UI, Arial, sans-serif" font-size="20">review boundaries</text>
+
+  <rect x="776" y="210" width="280" height="340" rx="24" fill="url(#card)" stroke="#0EA5E9"/>
+  <text x="806" y="262" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="600">Agent Contract</text>
+  <text x="806" y="308" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">mission</text>
+  <text x="806" y="340" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">visible context</text>
+  <text x="806" y="372" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">allowed tools</text>
+  <text x="806" y="404" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">permissions</text>
+  <text x="806" y="436" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">escalation rules</text>
+  <text x="806" y="468" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">output contract</text>
+  <text x="806" y="500" fill="#7DD3FC" font-family="Segoe UI, Arial, sans-serif" font-size="20">failure handling</text>
+
+  <rect x="1120" y="290" width="210" height="180" rx="24" fill="url(#card)" stroke="#F59E0B"/>
+  <text x="1150" y="340" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">MVP System</text>
+  <text x="1150" y="382" fill="#FCD34D" font-family="Segoe UI, Arial, sans-serif" font-size="20">spec</text>
+  <text x="1150" y="412" fill="#FCD34D" font-family="Segoe UI, Arial, sans-serif" font-size="20">guardrails</text>
+  <text x="1150" y="442" fill="#FCD34D" font-family="Segoe UI, Arial, sans-serif" font-size="20">evaluation</text>
+
+  <path d="M368 380H432" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M712 380H776" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M1056 380H1120" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+
+  <text x="94" y="600" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">Why teams use it</text>
+  <text x="94" y="642" fill="#BFDBFE" font-family="Segoe UI, Arial, sans-serif" font-size="20">• Replace prompt-first AI with decision-first design</text>
+  <text x="94" y="674" fill="#BFDBFE" font-family="Segoe UI, Arial, sans-serif" font-size="20">• Turn local code, docs, and data into governed workflows</text>
+  <text x="94" y="706" fill="#BFDBFE" font-family="Segoe UI, Arial, sans-serif" font-size="20">• Build Palantir-inspired systems without enterprise lock-in</text>
+
+  <rect x="908" y="620" width="422" height="108" rx="20" fill="#08131F" stroke="#1D4ED8"/>
+  <text x="938" y="664" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600">The unit of design is the decision.</text>
+  <text x="938" y="700" fill="#93C5FD" font-family="Segoe UI, Arial, sans-serif" font-size="18">Not the prompt. Not the demo. Not the dashboard.</text>
+</svg>
