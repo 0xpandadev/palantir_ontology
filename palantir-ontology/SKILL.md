@@ -9,6 +9,10 @@ description: Design Palantir-inspired local decision systems from messy business
 
 Turn a vague business problem or local context into a concrete `Decision System Spec` that resembles the useful parts of Palantir's public methodology without claiming proprietary access. Model the world as objects, signals, actions, permissions, and review boundaries; then produce an implementation-ready operating design that can run inside Codex, Claude Code, or a local toolchain.
 
+This skill can also absorb two adjacent jobs when the user wants a simpler workflow:
+- `Ingest mode`: extract ontology-ready objects, signals, metrics, risks, initiatives, and events from messy source documents before or while modeling the ontology
+- `GUI mode`: turn the resulting decision spec or object model into a Palantir-style operational interface with overview pages, queues, detail views, timelines, and governed actions
+
 ## Core Principle
 
 Design around the decision, not the prompt.
@@ -19,6 +23,14 @@ Treat prompts as implementation details inside a larger system that defines:
 - what actions are allowed
 - where human approval is required
 - how success and failure will be evaluated
+
+Replace this weak pattern:
+
+`Files + Retrieval + Chat UI`
+
+with this stronger pattern:
+
+`Decision + Ontology + Actions + Guardrails + Evaluation`
 
 ## When to Use
 
@@ -35,6 +47,86 @@ Accept one or both of these:
 - `context`: local files, code, schemas, tickets, docs, or datasets that describe the world
 
 If the user only gives a goal, infer the missing world model and explicitly list unknowns. If the user only gives data, infer the likely decision surfaces and suggest the most promising first use cases.
+
+## Working Modes
+
+Choose the lightest mode that fits the task.
+
+### Mode A: Ontology only
+
+Use when the user mainly wants a decision model, object model, workflow, permissions, and review boundaries.
+
+### Mode B: Ontology + ingest
+
+Use when the input is a packet of filings, IR decks, operating documents, CSVs, or mixed materials and the user needs structured extraction before the ontology is clear.
+
+In this mode:
+- build a small source inventory
+- extract canonical objects and aliases
+- normalize periods, units, and naming
+- separate `reported_value` from `normalized_value` when needed
+- preserve provenance for non-trivial facts
+
+Default extracted families:
+- `Company`
+- `BusinessSegment`
+- `KPI`
+- `StrategicInitiative`
+- `Risk`
+- `DisclosureEvent`
+- `ManagementStatement`
+
+### Mode C: Ontology + GUI
+
+Use when the user already has a good ontology or decision spec and wants it turned into an operational interface.
+
+Default deliverable order:
+1. `HTML mock` if the user does not specify an implementation format
+2. `React prototype` when the user asks for a richer local app
+3. `Interface spec` only when the user explicitly wants planning or architecture without code
+
+Default application patterns:
+- `Queue + Detail + Action`
+- `Common Operational Picture`
+- `Plan vs Actual Tracker`
+- `Object Explorer`
+
+Default page set for action-oriented apps:
+- `Overview`
+- `Queue or Alert Feed`
+- `Object Detail`
+- `Timeline or Event Log`
+- `Review / Action Panel`
+
+Favor object-linked tables, filters, detail panes, and visible action states over chart-only dashboards.
+Prefer visible output over prose. If GUI mode is requested and no contrary instruction is given, generate files for a mock or prototype instead of stopping at Markdown.
+Treat HTML as a lightweight product surface, not a dressed-up document. The default should look and behave like an operational application rather than a report.
+
+### Mode D: End-to-end
+
+Use when the user wants one pass from messy inputs to usable interface.
+
+Flow:
+1. extract and normalize source material
+2. define ontology and decision surface
+3. derive interface pages, components, and actions
+4. if requested, scaffold prototype code or HTML
+
+## Recommended First Scope
+
+Do not begin with a giant platform. Begin with one decision that has:
+- clear business value
+- available data
+- bounded risk
+- human reviewers available
+- visible outcomes
+
+Common first targets:
+- incident escalation
+- claims triage
+- release readiness
+- support prioritization
+- inventory allocation
 
 ## Workflow
 
@@ -64,6 +156,12 @@ Prefer operating artifacts over summaries:
 - workflow screenshots or tables
 
 Do not load everything by default. Emulate Palantir's controlled-context style by reading only the context that sharpens the decision.
+
+If the request is document-heavy, do a compact ingest pass first:
+- identify document type and period
+- extract candidate objects, metrics, risks, and events
+- note unresolved naming conflicts
+- continue ontology design only after the schema stabilizes
 
 ### Step 3: Build the local ontology
 
@@ -102,6 +200,15 @@ Define:
 
 Treat prompt text as one implementation detail inside this larger contract.
 
+If GUI work is requested, also define the interface contract:
+- primary user
+- primary decision loop
+- main object set
+- writeback actions
+- review boundaries
+- evidence panels
+- status transitions
+
 ### Step 6: Produce the Decision System Spec
 
 Use `assets/decision-system-spec-template.md` as the canonical output shape. The spec must include:
@@ -116,6 +223,40 @@ Use `assets/decision-system-spec-template.md` as the canonical output shape. The
 - Evaluation plan
 - Missing data
 - MVP build plan
+
+If running in ingest mode, prepend a short `Ingest Summary` with:
+- sources used
+- normalized objects
+- key signals and metrics
+- events and risks
+- unresolved data issues
+
+If running in GUI mode:
+- default to creating an `HTML mock` file
+- create a `React prototype` when the user asks for a working app, richer interactions, or local preview
+- append a short `Interface Spec` only as support for the generated UI, not as the primary deliverable
+
+When selecting a GUI pattern, use these rules:
+- choose `Queue + Detail + Action` for triage, approval, escalation, and task handling
+- choose `Common Operational Picture` for awareness, shared monitoring, or cross-team situational views
+- choose `Plan vs Actual Tracker` for mid-term plans, KPI delivery, and strategy progress
+- choose `Object Explorer` for relationship-heavy analysis across linked objects
+
+In all GUI outputs:
+- make filters visible
+- keep the selected object persistent while users review evidence
+- place actions near the evidence and current state they affect
+- show status chips and review modes explicitly
+- prefer dense tables and side panels over long prose blocks
+
+The supporting `Interface Spec` should cover:
+- user and decision
+- primary objects
+- pages
+- components
+- actions and review
+- state model
+- build plan
 
 If useful, scaffold the file with the helper script:
 
@@ -139,9 +280,16 @@ Before calling the design good, challenge it:
 
 Use `references/industry-packs.md` to compare against industry-specific patterns when relevant.
 
+Before calling the design ready, make sure it can answer:
+1. What exactly is the decision?
+2. What object is the decision acting on?
+3. What evidence is the decision based on?
+4. What action follows the decision?
+5. Who approves the risky cases?
+
 ## Output Format
 
-Return a `Decision System Spec` in Markdown. The final output should be concise enough to implement and detailed enough to govern.
+Return a `Decision System Spec` in Markdown for ontology work. When GUI work is requested, return code and files first, then a concise supporting spec.
 
 ### Required sections
 
@@ -160,6 +308,19 @@ Return a `Decision System Spec` in Markdown. The final output should be concise 
 ## 10. MVP Build Plan
 ```
 
+When GUI work is requested, add supporting sections as needed:
+
+```markdown
+## 11. Interface Spec
+### User and Decision
+### Primary Objects
+### Pages
+### Components
+### Actions and Review
+### State Model
+### Build Plan
+```
+
 ## Prerequisites
 
 - No external API keys required for the skill itself
@@ -171,8 +332,15 @@ Return a `Decision System Spec` in Markdown. The final output should be concise 
 - `references/methodology.md` -- The core Palantir-inspired design method and operating principles
 - `references/ontology-patterns.md` -- Patterns for objects, states, links, signals, and world modeling
 - `references/action-guardrails.md` -- Action classes, approval boundaries, logging, and safety design
+- `references/framework.md` -- Short mental model and design thesis aligned with the public GitHub repo
+- `references/gui-principles.md` -- Public Palantir UI patterns from Workshop, Slate, operational applications, and Actions
+- `references/gui-patterns.md` -- Pattern selection guide for queue/detail/action apps, COPs, plan trackers, and object explorers
 - `references/industry-packs.md` -- Industry-specific examples for manufacturing, healthcare, logistics, finance, and internal ops
+- `references/use-cases.md` -- Example starting points such as incident triage, claims review, support routing, and inventory allocation
 - `assets/decision-system-spec-template.md` -- Canonical template for final output
+- `assets/palantir-html-mock-starter.html` -- Default starter for Palantir-style queue/detail/timeline mocks
+- `assets/palantir-queue-detail-action.html` -- Higher-fidelity action-oriented operational UI starter
+- `assets/palantir-plan-tracker.html` -- Higher-fidelity plan-vs-actual tracker starter
 - `scripts/bootstrap_decision_spec.py` -- Helper script to scaffold a Decision System Spec file from a goal and local context list
 
 ## Key Principles
@@ -182,3 +350,6 @@ Return a `Decision System Spec` in Markdown. The final output should be concise 
 3. Make actions explicit and permissions visible.
 4. Default to human review where risk is unclear.
 5. Design for implementation, not just analysis.
+6. If source materials are messy, perform the minimum ingest needed before deciding.
+7. If the user wants a dashboard, design around objects and actions, not only charts.
+8. If the user wants GUI, prefer generating something visible and runnable before writing long Markdown.
